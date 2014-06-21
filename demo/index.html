@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<style>
+	html, body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
+	</style>
+</head>
+<body>
+	<button id="button-demo">DESTROY</button>
+
+	<script src="../bower_components/jquery/dist/jquery.js"></script>
+	<script src="../src/swiperize.js"></script>
+	<script>
+
+	(function(){
+		var box = $("body");
+		var button = $("#button-demo");
+
+		box.swiperize({mouse: true})
+		.on($.getSwipeEvents().join(" "), function(e, o){
+			console.log(e.type, o);
+		})
+
+		button.on("click", function(){
+			box.unswiperize();
+		});
+
+	}());
+
+	</script>
+	
+</body>
+</html>
